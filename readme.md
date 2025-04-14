@@ -39,7 +39,7 @@ This repository contains a comprehensive user management system with robust data
 ## Docker Deployment
 
 The application is containerized and available on DockerHub:
-[docker.io/sudeeppanyam/event_manager_code:latest](https://hub.docker.com/repository/docker/sudeeppanyam/event_manager_code/tags)
+[docker.io/sudeeppanyam/event_manager:latest](https://hub.docker.com/repository/docker/sudeeppanyam/event_manager/tags)
 
 ## Technical Implementation
 
