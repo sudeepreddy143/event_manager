@@ -77,7 +77,15 @@ class UserService:
     async def update(cls, session: AsyncSession, user_id: UUID, update_data: Dict[str, str]) -> Optional[User]:
         try:
             # validated_data = UserUpdate(**update_data).dict(exclude_unset=True)
-            validated_data = UserUpdate(**update_data).dict(exclude_unset=True)
+            validated_data = UserUpdate(**update_data).model_dump(exclude_unset=True)
+            
+            # Check if nickname is being updated and if it already exists
+            if 'nickname' in validated_data:
+                existing_user = await cls.get_by_nickname(session, validated_data['nickname'])
+                if existing_user and existing_user.id != user_id:
+                    logger.error(f"Nickname {validated_data['nickname']} already exists.")
+                    return None
+
 
             if 'password' in validated_data:
                 validated_data['hashed_password'] = hash_password(validated_data.pop('password'))
