@@ -54,11 +54,7 @@ class UserBase(BaseModel):
 
 
 
-@validator('bio')
-def validate_bio_length(cls, v):
-    if v is not None and len(v) > 500:
-        raise ValueError('Bio must not exceed 500 characters')
-    return v
+
 
 
 
