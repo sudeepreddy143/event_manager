@@ -15,7 +15,6 @@ class UserRole(str, Enum):
     ADMIN = "ADMIN"
 
 
-
 class UserBase(BaseModel):
     email: EmailStr = Field(..., example="john.doe@example.com")
     nickname: Optional[str] = Field(None, min_length=3, pattern=r'^[\w-]+$', example=generate_nickname())
@@ -53,6 +52,7 @@ def validate_bio_length(cls, v):
     if v is not None and len(v) > 500:
         raise ValueError('Bio must not exceed 500 characters')
     return v
+
 
 
 
