@@ -6,31 +6,31 @@ This repository contains a comprehensive user management system with robust data
 
 ## Key Features and Fixes
 
-1. **Password Validation**
+1. [**Password Validation**](https://github.com/sudeepreddy143/event_manager/issues/3)
    - Comprehensive strength validation
    - Requirements for length, case, digits, and special characters
    - Implementation in user schema validation layer
    - [code](app\schemas\user_schemas.py)
 
-2. **Username Validation**
+2. [**Username Validation**](https://github.com/sudeepreddy143/event_manager/issues/1)
    - Nickname uniqueness verification
    - Real-time validation during profile updates
    - Prevention of duplicate user identifiers
    - [code](app\services\user_service.py)
 
-3. **Secure Password Handling**
+3. [**Secure Password Handling**](https://github.com/sudeepreddy143/event_manager/issues/10)
    - Fixed method call in update service
    - Enhanced validation in update schema
    - Proper password management during user updates
    - [code](app\schemas\user_schemas.py)
 
-4. **Profile URL Validation**
+4. [**Profile URL Validation**](https://github.com/sudeepreddy143/event_manager/issues/7) 
    - Improved regex pattern for URL verification
    - Automatic HTTPS scheme addition when missing
    - Support for various valid URL formats 
-  - [code](app\schemas\user_schemas.py)
+   - [code](app\schemas\user_schemas.py)
 
-5. [**Content Length Validation**](https://github.com/sudeepreddy143/event_manager/issues/7) 
+5. [**Content Length Validation**](https://github.com/sudeepreddy143/event_manager/issues/5)
    - Bio text character limit enforcement
    - Prevention of database constraint violations
    - User-friendly validation messages 
