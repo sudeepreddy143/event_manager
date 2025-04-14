@@ -6,6 +6,38 @@ from app.models.user_model import User
 from app.utils.nickname_gen import generate_nickname
 from app.utils.security import hash_password
 from app.services.jwt_service import decode_token  # Import your FastAPI app
+from app.services.jwt_service import create_access_token, decode_token
+from uuid import UUID
+
+@pytest.fixture
+async def user_token(verified_user):
+    """Generate a JWT token for a regular verified user."""
+    token_data = {
+        "sub": str(verified_user.id),
+        "email": verified_user.email,
+        "role": "AUTHENTICATED"
+    }
+    return create_access_token(data=token_data)  # Use keyword argument
+
+@pytest.fixture
+async def admin_token(admin_user):
+    """Generate a JWT token for an admin user."""
+    token_data = {
+        "sub": str(admin_user.id),
+        "email": admin_user.email,
+        "role": "ADMIN"
+    }
+    return create_access_token(data=token_data)
+
+@pytest.fixture
+async def manager_token(manager_user):
+    """Generate a JWT token for a manager user."""
+    token_data = {
+        "sub": str(manager_user.id),
+        "email": manager_user.email,
+        "role": "MANAGER"
+    }
+    return create_access_token(data=token_data)
 
 # Example of a test function using the async_client fixture
 @pytest.mark.asyncio
