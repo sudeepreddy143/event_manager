@@ -52,6 +52,8 @@ class UserBase(BaseModel):
     class Config:
         from_attributes = True
 
+
+
 @validator('bio')
 def validate_bio_length(cls, v):
     if v is not None and len(v) > 500:
